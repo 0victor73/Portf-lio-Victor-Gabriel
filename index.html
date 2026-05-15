@@ -22,7 +22,7 @@
 
   <!-- ════════ NAV ════════ -->
   <nav id="navbar">
-    <a href="#hero" class="nav-logo">&lt;VG /&gt;</a>
+    <a href="#hero" class="nav-logo">&lt;/VG&gt;</a>
     <ul class="nav-links" id="navLinks">
       <li><a href="#about">Sobre</a></li>
       <li><a href="#projects">Projetos</a></li>
@@ -39,11 +39,11 @@
     <div class="hero-bg-overlay"></div>
     <div class="hero-content">
       <div class="hero-badge">Disponível para projetos</div>
-      <h1 class="hero-title">Olá, eu sou o<br /><span>Victor Gabriel.</span></h1>
+      <h1 class="hero-title">Olá, eu sou o<br /><span>Victor Gabriel</span></h1>
       <p class="hero-subtitle">Desenvolvedor de Soluções</p>
       <p class="hero-desc">
-        Transformo dados em decisões, crio soluções de software eficientes e aumento seu alcance com sites e
-        automações.</p>
+        Desenvolvedor de soluções em Business Intelligence, Soluções de software, automações e sites para
+        aumentar o alcance da sua empresa.</p>
       <div class="hero-actions">
         <a href="#projects" class="btn-primary" id="btn-ver-projetos">
           <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
@@ -68,26 +68,24 @@
     <div class="about-grid">
       <div class="about-text fade-in">
         <span class="section-label">Sobre Mim</span>
-        <h2 class="section-title">Dados, código e<br /><span>paixão por inovar</span></h2>
+        <h2 class="section-title">Código, Dados e<br /><span>paixão por inovar</span></h2>
         <div class="section-divider"></div>
         <p>
-          Sou estudante de Gestão de Tecnologia da Informação (GTI) na Uniaene, residente em
-          <strong>Cachoeira — BA</strong>. Tenho experiência consolidada na criação de relatórios
-          institucionais, automação de fluxos de trabalho e desenvolvimento de aplicações.
-          Minha atuação une análise de dados, programação e forte conhecimento em infraestrutura
+          Formado em Gestão da Tecnologia da Informação (GTI) pelo Uniaene. Tenho experiência consolidada na criação de
+          relatórios
+          institucionais, automação de fluxos de trabalho e desenvolvimento de sites e sistemas.
+          Minha atuação une análise de dados, programação e conhecimento em infraestrutura
           de transmissões ao vivo.
         </p>
         <p class="skills-title">Stack &amp; Ferramentas</p>
         <div class="skills-grid">
+          <span class="skill-badge cyan">🌐 HTML/CSS/JS</span>
           <span class="skill-badge">⚡ Power BI</span>
           <span class="skill-badge">📐 DAX</span>
           <span class="skill-badge">🔄 Power Query</span>
           <span class="skill-badge">🗄️ SQL</span>
           <span class="skill-badge purple">🤖 n8n</span>
-          <span class="skill-badge purple">📱 Flutter</span>
           <span class="skill-badge purple">🐍 Python</span>
-          <span class="skill-badge cyan">🌐 HTML/CSS/JS</span>
-          <span class="skill-badge cyan">🅱️ Bootstrap</span>
           <span class="skill-badge orange" style="--accent:orange">🎙️ OBS Studio</span>
         </div>
       </div>
@@ -124,7 +122,7 @@
             </div>
             <div class="tech-row">
               <div class="tech-dot cyan"></div>
-              <span style="min-width:100px">Dev Web / Mobile</span>
+              <span style="min-width:100px">Dev Web</span>
               <div class="tech-bar-bg">
                 <div class="tech-bar cyan" data-width="75" style="width:0"></div>
               </div>
@@ -152,13 +150,42 @@
     </div>
     <div class="projects-grid" id="projects-grid">
 
+      <!-- Card 4 -->
+      <article class="project-card fade-in fade-in-delay-2" id="card-netbrain">
+        <img src="project_netbrain.png" alt="NetBrain" class="project-image" />
+        <div class="project-body">
+          <div class="project-number">01 / Sistema</div>
+          <h3 class="project-title">NetBrain</h3>
+          <p class="project-desc">Sistema de organização de ideias e notas na nuvem</p>
+          <div class="project-tags">
+            <span class="project-tag purple">React</span>
+            <span class="project-tag purple">Tailwind</span>
+            <span class="project-tag purple">TypeScript</span>
+          </div>
+        </div>
+      </article>
       <!-- Card 1 -->
+      <article class="project-card fade-in fade-in-delay-2" id="card-obs">
+        <img src="project_obs.png" alt="Customização para Broadcast" class="project-image" />
+        <div class="project-body">
+          <div class="project-number">02 / Live Production</div>
+          <h3 class="project-title">Plugins para OBS Studio</h3>
+          <p class="project-desc">Desenvolvimento de plugins nativos para OBS Studio focado no gerenciamento de
+            elementos de transmissão ao vivo de alta performance.</p>
+          <div class="project-tags">
+            <span class="project-tag orange">OBS Studio</span>
+            <span class="project-tag orange">Live Production</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- Card 2 -->
       <article class="project-card fade-in fade-in-delay-1" id="card-dashboards">
         <img src="project_dashboards.png" alt="Dashboards Institucionais e de RH" class="project-image" />
         <div class="project-body">
-          <div class="project-number">01 / Análise de Dados</div>
-          <h3 class="project-title">Dashboards Institucionais e de RH</h3>
-          <p class="project-desc">Modelagem de dados complexa com relacionamentos avançados e criação de relatórios
+          <div class="project-number">03 / Análise de Dados</div>
+          <h3 class="project-title">Dashboards Institucionais</h3>
+          <p class="project-desc">Modelagem de dados com relacionamentos avançados e criação de relatórios
             financeiros e de RH com KPIs estratégicos.</p>
           <div class="project-tags">
             <span class="project-tag">Power BI</span>
@@ -168,23 +195,25 @@
         </div>
       </article>
 
-      <!-- Card 2 -->
+      <!-- Card 3 -->
       <article class="project-card fade-in fade-in-delay-2" id="card-automacao">
         <img src="project_automation.png" alt="Automação de Extração de Dados" class="project-image" />
         <div class="project-body">
-          <div class="project-number">02 / Automação</div>
+          <div class="project-number">04 / Automação</div>
           <h3 class="project-title">Automação de Extração de Dados</h3>
-          <p class="project-desc">Fluxos automatizados para baixar e processar relatórios JSON da plataforma D2L
-            Brightspace, eliminando tarefas manuais repetitivas.</p>
+          <p class="project-desc">Fluxos automatizados para baixar e processar relatórios JSON, eliminando tarefas
+            manuais repetitivas.</p>
           <div class="project-tags">
             <span class="project-tag purple">n8n</span>
             <span class="project-tag purple">Automação</span>
-            <span class="project-tag">JSON</span>
+            <span class="project-tag purple">JSON</span>
           </div>
         </div>
       </article>
 
-      <!-- Card 3 -->
+
+
+      <!-- Card 3 
       <article class="project-card fade-in fade-in-delay-3" id="card-capitao">
         <img src="project_webapp.png" alt="Gerenciador de Tarefas do Capitão Promo" class="project-image" />
         <div class="project-body">
@@ -201,7 +230,7 @@
         </div>
       </article>
 
-      <!-- Card 4 -->
+       Card 4 
       <article class="project-card fade-in fade-in-delay-1" id="card-mobile">
         <img src="project_mobile.png" alt="Ecossistema Mobile" class="project-image" />
         <div class="project-body">
@@ -214,22 +243,7 @@
             <span class="project-tag purple">Dart</span>
           </div>
         </div>
-      </article>
-
-      <!-- Card 5 -->
-      <article class="project-card fade-in fade-in-delay-2" id="card-obs">
-        <img src="project_obs.png" alt="Customização para Broadcast" class="project-image" />
-        <div class="project-body">
-          <div class="project-number">05 / Live Production</div>
-          <h3 class="project-title">Customização para Broadcast</h3>
-          <p class="project-desc">Desenvolvimento de um plugin nativo para OBS Studio focado no gerenciamento de
-            elementos de transmissão ao vivo de alta performance.</p>
-          <div class="project-tags">
-            <span class="project-tag orange">OBS Studio</span>
-            <span class="project-tag orange">Live Production</span>
-          </div>
-        </div>
-      </article>
+      </article>-->
 
     </div>
   </section>
@@ -260,13 +274,15 @@
               </svg>
               LinkedIn
             </a>
-            <a href="mailto:victorpinto@email.com" class="social-link" id="link-email">
+            <!--
+            <a href="mailto:victorgabrielferreirapinto@gmail.com" class="social-link" id="link-email">
               <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
                 <path stroke-linecap="round" stroke-linejoin="round"
                   d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
               </svg>
               E-mail Profissional
             </a>
+            -->
           </div>
         </div>
       </div>
@@ -298,7 +314,7 @@
 
   <!-- ════════ FOOTER ════════ -->
   <footer>
-    <p>© 2026 <span>Victor Gabriel</span>. Construído com paixão por dados e código.</p>
+    <p>© 2026 <span>Victor Gabriel</span>.</p>
   </footer>
 
   <script src="main.js"></script>
