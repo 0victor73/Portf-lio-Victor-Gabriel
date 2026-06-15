@@ -14,6 +14,7 @@ document.querySelectorAll('.nav-links a').forEach(link => {
 });
 
 // ── INTERSECTION OBSERVER: fade-in ──
+/* Desabilitado para garantir visibilidade imediata
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
@@ -23,6 +24,8 @@ const observer = new IntersectionObserver((entries) => {
 }, { threshold: 0.12 });
 
 document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+*/
+document.querySelectorAll('.fade-in').forEach(el => el.classList.add('visible'));
 
 // ── SKILL BARS: animate when visible ──
 const barObserver = new IntersectionObserver((entries) => {

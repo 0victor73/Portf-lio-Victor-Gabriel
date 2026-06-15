@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Catálogo de Componentes | Victor Gabriel</title>
+  
+  <!-- CSS Principal da sua página original -->
+  <link rel="stylesheet" href="style.css" />
+  
+  <!-- CSS Específico para Novos Componentes -->
+  <!-- Dica: Você pode mover essas classes para o style.css no futuro -->
+  <style>
+    /* =========================================
+       NOVOS COMPONENTES (KPIs, Tabelas, Listas)
+       ========================================= */
+
+    /* 1. Layouts Grid e Flexbox Responsivos */
+    .grid-2-cols {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2rem;
+    }
+    .grid-3-cols {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+    .flex-gap {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      align-items: center;
+    }
+
+    /* 2. Profile Card (Card de Perfil de Usuário) */
+    .profile-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 2.5rem 2rem;
+      text-align: center;
+      transition: var(--transition);
+      box-shadow: var(--shadow-card);
+    }
+    .profile-card:hover {
+      border-color: var(--accent-purple);
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-card), 0 0 30px rgba(139, 92, 246, 0.15);
+    }
+    .profile-avatar {
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      background: var(--gradient-main);
+      margin: 0 auto 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.5rem;
+      color: #fff;
+      font-weight: 800;
+      box-shadow: 0 0 25px rgba(59, 130, 246, 0.4);
+    }
+    .profile-name {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 0.4rem;
+    }
+    .profile-role {
+      font-size: 0.9rem;
+      color: var(--accent-blue-glow);
+      margin-bottom: 1.5rem;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+    }
+
+    /* 3. KPI Metric Card (Métricas e Indicadores) */
+    .kpi-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+      box-shadow: var(--shadow-card);
+    }
+    .kpi-card:hover {
+      border-color: var(--border-hover);
+      transform: translateY(-4px);
+    }
+    /* Barra lateral colorida de destaque */
+    .kpi-card::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; width: 4px; height: 100%;
+      background: var(--gradient-main);
+    }
+    .kpi-card.purple::after { background: var(--accent-purple); }
+    .kpi-card.cyan::after { background: var(--accent-cyan); }
+    
+    .kpi-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .kpi-icon {
+      color: var(--accent-blue);
+      opacity: 0.8;
+    }
+    .kpi-value {
+      font-size: 2.5rem;
+      font-weight: 900;
+      color: var(--text-primary);
+      line-height: 1;
+    }
+    .kpi-trend {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.85rem;
+      font-weight: 600;
+    }
+    .kpi-trend.positive { color: #10b981; } /* Verde para crescimento */
+    .kpi-trend.negative { color: #ef4444; } /* Vermelho para queda */
+    .kpi-trend.neutral { color: var(--text-secondary); }
+
+    /* 4. Data Table (Tabela de Dados) */
+    .data-table-wrapper {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow-x: auto; /* Permite scroll no mobile sem quebrar o layout */
+      box-shadow: var(--shadow-card);
+    }
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      min-width: 600px; /* Garante que não fique espremida em telas pequenas */
+    }
+    .data-table th, .data-table td {
+      padding: 1.2rem 1.5rem;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.95rem;
+    }
+    .data-table th {
+      background: rgba(255, 255, 255, 0.02);
+      color: var(--text-secondary);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-size: 0.8rem;
+    }
+    .data-table tbody tr {
+      transition: background 0.2s ease;
+    }
+    .data-table tbody tr:hover {
+      background: rgba(59, 130, 246, 0.05); /* Efeito sutil ao passar o mouse na linha */
+    }
+    .data-table tbody tr:last-child td {
+      border-bottom: none;
+    }
+
+    /* 5. List Group (Lista Estruturada) */
+    .list-group {
+      list-style: none;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 0;
+      margin: 0;
+      box-shadow: var(--shadow-card);
+    }
+    .list-group-item {
+      padding: 1.2rem 1.5rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: var(--transition);
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+    }
+    .list-group-item:last-child {
+      border-bottom: none;
+    }
+    .list-group-item:hover {
+      background: rgba(59, 130, 246, 0.05);
+      color: var(--text-primary);
+      padding-left: 1.8rem; /* Pequeno efeito de deslocamento lateral */
+    }
+
+    /* =========================================
+       ESTRUTURA DA PÁGINA DO TEMPLATE
+       ========================================= */
+    .template-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 120px clamp(1.5rem, 5vw, 5rem) 5rem;
+    }
+    .template-header {
+      margin-bottom: 4rem;
+      text-align: center;
+    }
+    .template-section {
+      margin-bottom: 5rem;
+      padding-bottom: 4rem;
+      border-bottom: 1px dashed var(--border);
+    }
+    .template-section:last-child {
+      border-bottom: none;
+    }
+    .template-section-title {
+      font-size: 1.8rem;
+      font-weight: 800;
+      margin-bottom: 2rem;
+      color: var(--text-primary);
+    }
+    .template-section-title span {
+      background: var(--gradient-main);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .component-label {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin-bottom: 1.2rem;
+      font-weight: 700;
+      display: block;
+    }
+    .component-box {
+      margin-bottom: 3rem;
+    }
+
+    /* 6. Placeholders de Imagem e Mídia */
+    .image-placeholder {
+      background: rgba(255, 255, 255, 0.03);
+      border: 2px dashed var(--border);
+      border-radius: var(--radius);
+      height: 220px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      color: var(--text-muted);
+      transition: var(--transition);
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+    }
+    .image-placeholder:hover {
+      background: rgba(59, 130, 246, 0.05);
+      border-color: var(--accent-blue);
+      color: var(--accent-blue-glow);
+    }
+    .image-placeholder.wide {
+      height: 450px;
+      width: 100%;
+    }
+    .placeholder-icon {
+      font-size: 3rem;
+      filter: drop-shadow(0 0 10px rgba(59, 130, 246, 0.3));
+      opacity: 0.6;
+    }
+    .placeholder-text {
+      font-size: 0.9rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    .media-figure {
+      margin: 0;
+    }
+    .media-caption {
+      margin-top: 1rem;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      text-align: left;
+      font-style: italic;
+      border-left: 2px solid var(--accent-blue);
+      padding-left: 1rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ════════ NAVBAR (REUTILIZADA) ════════ -->
+  <nav id="navbar" class="scrolled">
+    <a href="index.html" class="nav-logo">&lt;/VG&gt;</a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html#about">Voltar ao Portfólio</a></li>
+      <li><a href="#layout">Layout</a></li>
+      <li><a href="#ui">UI Components</a></li>
+      <li><a href="#data">Dados</a></li>
+    </ul>
+  </nav>
+
+  <!-- ════════ CONTAINER DO TEMPLATE ════════ -->
+  <main class="template-container">
+    
+    <div class="template-header">
+      <span class="section-label">Master Template</span>
+      <h1 class="section-title">Catálogo de <span>Componentes</span></h1>
+      <p style="color: var(--text-secondary); max-width: 600px; margin: 1rem auto 0;">
+        Biblioteca viva e responsiva contendo blocos construtivos e layouts (Boilerplate)
+        para criação rápida de novas páginas de projetos, mantendo o Design System intacto.
+      </p>
+    </div>
+
+    <!-- ════════ 1. ARQUITETURA E LAYOUT ════════ -->
+    <section id="layout" class="template-section">
+      <h2 class="template-section-title">1. Arquitetura &amp; <span>Layout Base</span></h2>
+      
+      <div class="component-box">
+        <span class="component-label">Grid System (3 Colunas)</span>
+        <div class="grid-3-cols">
+          <!-- Espaços reservados (Placeholders) com estilo de card vazio -->
+          <div style="height: 120px; background: rgba(59,130,246,0.05); border: 1px dashed var(--border); border-radius: var(--radius); display: flex; align-items: center; justify-content: center; color: var(--text-muted);">Coluna 1</div>
+          <div style="height: 120px; background: rgba(59,130,246,0.05); border: 1px dashed var(--border); border-radius: var(--radius); display: flex; align-items: center; justify-content: center; color: var(--text-muted);">Coluna 2</div>
+          <div style="height: 120px; background: rgba(59,130,246,0.05); border: 1px dashed var(--border); border-radius: var(--radius); display: flex; align-items: center; justify-content: center; color: var(--text-muted);">Coluna 3</div>
+        </div>
+        <p style="font-size: 0.85rem; color: var(--text-secondary); margin-top: 1rem;">O grid automaticamente quebra para 2 ou 1 coluna em telas menores (Mobile-First).</p>
+      </div>
+
+      <div class="component-box">
+        <span class="component-label">Grid System (2 Colunas Assimétricas - Contato)</span>
+        <div class="contact-inner" style="margin: 0;"> <!-- Reutilizando a classe do contato original -->
+          <div style="height: 160px; background: rgba(139,92,246,0.05); border: 1px dashed var(--border); border-radius: var(--radius); display: flex; align-items: center; justify-content: center; color: var(--text-muted);">Coluna Texto/Info (1fr)</div>
+          <div style="height: 160px; background: rgba(139,92,246,0.05); border: 1px dashed var(--border); border-radius: var(--radius); display: flex; align-items: center; justify-content: center; color: var(--text-muted);">Coluna Formulário/Interativa (1.2fr)</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════ 2. COMPONENTES DE INTERFACE ════════ -->
+    <section id="ui" class="template-section">
+      <h2 class="template-section-title">2. Componentes de <span>Interface</span></h2>
+
+      <!-- Botões -->
+      <div class="component-box">
+        <span class="component-label">Botões (Buttons)</span>
+        <div class="flex-gap">
+          <button class="btn-primary">Ação Primária</button>
+          <button class="btn-secondary">Ação Secundária</button>
+          <button class="btn-submit">
+            <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path d="M12 4v16m8-8H4"/></svg>
+            Botão com Ícone
+          </button>
+        </div>
+      </div>
+
+      <!-- Badges / Tags -->
+      <div class="component-box">
+        <span class="component-label">Badges &amp; Tags</span>
+        <div class="flex-gap">
+          <span class="skill-badge">Padrão / Default</span>
+          <span class="skill-badge purple">Secundário (Purple)</span>
+          <span class="skill-badge cyan">Terciário (Cyan)</span>
+          <span class="project-tag">Tag Projetos</span>
+          <span class="project-tag orange">Tag Laranja</span>
+          <span class="hero-badge" style="margin: 0;">Status Pulsante</span>
+        </div>
+      </div>
+
+      <!-- Cards Diversos -->
+      <div class="component-box">
+        <span class="component-label">Variantes de Cards</span>
+        
+        <div class="grid-3-cols">
+          
+          <!-- Card de Projeto (Reutilizado do Index) -->
+          <article class="project-card">
+            <div style="height: 140px; background: var(--bg-primary); display:flex; align-items:center; justify-content:center; border-bottom: 1px solid var(--border);">
+              <span style="color: var(--text-muted); font-size: 0.85rem;">Imagem / Header</span>
+            </div>
+            <div class="project-body">
+              <div class="project-number">Categoria</div>
+              <h3 class="project-title">Card Padrão (Projetos)</h3>
+              <p class="project-desc">Reutilizado da página principal. Excelente para listar serviços, artigos ou portfólio.</p>
+            </div>
+          </article>
+
+          <!-- Card de Perfil -->
+          <div class="profile-card">
+            <div class="profile-avatar">VG</div>
+            <h3 class="profile-name">Victor Gabriel</h3>
+            <p class="profile-role">Desenvolvedor Sênior</p>
+            <div class="flex-gap" style="justify-content: center;">
+              <button class="btn-primary" style="padding: 0.5rem 1rem; font-size: 0.85rem;">Seguir</button>
+            </div>
+          </div>
+
+          <!-- Card Métricas KPI -->
+          <div style="display: flex; flex-direction: column; gap: 1rem;">
+            <!-- KPI 1 -->
+            <div class="kpi-card">
+              <div class="kpi-header">
+                <span>Receita Total</span>
+                <svg class="kpi-icon" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+              </div>
+              <div class="kpi-value">R$ 45.2k</div>
+              <div class="kpi-trend positive">
+                <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg>
+                +14.5% este mês
+              </div>
+            </div>
+            
+            <!-- KPI 2 -->
+            <div class="kpi-card purple">
+              <div class="kpi-header">
+                <span>Tempo de Resposta</span>
+                <svg class="kpi-icon" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+              </div>
+              <div class="kpi-value">1.2s</div>
+              <div class="kpi-trend negative">
+                <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13 17h8m0 0V9m0 8l-8-8-4 4-6-6"/></svg>
+                -2.4% (Queda leve)
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════ 3. EXIBIÇÃO DE DADOS ════════ -->
+    <section id="data" class="template-section">
+      <h2 class="template-section-title">3. Exibição de <span>Dados</span></h2>
+
+      <!-- Tabela de Dados (Data Table) -->
+      <div class="component-box">
+        <span class="component-label">Tabela de Dados (Data Table Responsiva)</span>
+        <div class="data-table-wrapper">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>ID da Tarefa</th>
+                <th>Nome do Projeto</th>
+                <th>Status</th>
+                <th>Data de Entrega</th>
+                <th>Ações</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="color: var(--accent-blue);">#TSK-089</td>
+                <td>Automação n8n (RH)</td>
+                <td><span class="project-tag">Em Progresso</span></td>
+                <td>18/05/2026</td>
+                <td><a href="#" style="color: var(--text-secondary); text-decoration: none;">Editar</a></td>
+              </tr>
+              <tr>
+                <td style="color: var(--accent-blue);">#TSK-088</td>
+                <td>Dashboard Power BI</td>
+                <td><span class="project-tag purple">Finalizado</span></td>
+                <td>12/05/2026</td>
+                <td><a href="#" style="color: var(--text-secondary); text-decoration: none;">Ver Detalhes</a></td>
+              </tr>
+              <tr>
+                <td style="color: var(--accent-blue);">#TSK-087</td>
+                <td>Manutenção Servidor</td>
+                <td><span class="project-tag orange">Pendente</span></td>
+                <td>20/05/2026</td>
+                <td><a href="#" style="color: var(--text-secondary); text-decoration: none;">Iniciar</a></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- List Group -->
+      <div class="component-box">
+        <span class="component-label">Lista Estruturada (List Group)</span>
+        
+        <div class="grid-2-cols">
+          <ul class="list-group">
+            <li class="list-group-item">
+              <div>
+                <strong style="color: var(--text-primary); display: block; margin-bottom: 2px;">Atualização de Script SQL</strong>
+                <span style="font-size: 0.8rem;">Modificações de performance no BD</span>
+              </div>
+              <span style="font-size: 0.8rem; color: var(--accent-blue);">Hoje</span>
+            </li>
+            <li class="list-group-item">
+              <div>
+                <strong style="color: var(--text-primary); display: block; margin-bottom: 2px;">Reunião com Stakeholders</strong>
+                <span style="font-size: 0.8rem;">Apresentação de resultados KPI</span>
+              </div>
+              <span style="font-size: 0.8rem; color: var(--text-muted);">Amanhã</span>
+            </li>
+            <li class="list-group-item">
+              <div>
+                <strong style="color: var(--text-primary); display: block; margin-bottom: 2px;">Review de Código (Flutter)</strong>
+                <span style="font-size: 0.8rem;">Revisão do PR #42 no GitHub</span>
+              </div>
+              <span style="font-size: 0.8rem; color: var(--text-muted);">Sex, 16</span>
+            </li>
+          </ul>
+
+          <div style="display: flex; align-items: center; justify-content: center; border: 1px dashed var(--border); border-radius: var(--radius); padding: 2rem; text-align: center; color: var(--text-muted);">
+            <p style="font-size: 0.9rem;">O List Group é ideal para sidebars, <br> notificações ou históricos de atividades.</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ════════ 4. MÍDIA E VISUALIZAÇÃO ════════ -->
+    <section id="media" class="template-section">
+      <h2 class="template-section-title">4. Mídia & <span>Visualização</span></h2>
+
+      <!-- Grid de Galeria -->
+      <div class="component-box">
+        <span class="component-label">Galeria de Imagens / Screenshots</span>
+        <div class="grid-3-cols">
+          <div class="image-placeholder">
+            <div class="placeholder-icon">📸</div>
+            <span class="placeholder-text">Thumbnail 01</span>
+          </div>
+          <div class="image-placeholder">
+            <div class="placeholder-icon">📸</div>
+            <span class="placeholder-text">Thumbnail 02</span>
+          </div>
+          <div class="image-placeholder">
+            <div class="placeholder-icon">📸</div>
+            <span class="placeholder-text">Thumbnail 03</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mockup Wide -->
+      <div class="component-box">
+        <span class="component-label">Mockup Principal (Banner Full-Width)</span>
+        <div class="image-placeholder wide">
+          <div class="placeholder-icon">🖥️</div>
+          <span class="placeholder-text">Visualização do Software / Dashboard</span>
+          <p style="font-size: 0.8rem; color: var(--text-muted); text-align: center;">Recomendado: 1920x1080px ou Aspect Ratio 16:9</p>
+        </div>
+      </div>
+
+      <!-- Imagem com Legenda -->
+      <div class="component-box">
+        <span class="component-label">Imagem com Legenda Técnica</span>
+        <div class="grid-2-cols" style="align-items: flex-start;">
+          <figure class="media-figure">
+            <div class="image-placeholder" style="height: 280px;">
+              <div class="placeholder-icon">🖼️</div>
+            </div>
+            <figcaption class="media-caption">
+              Exemplo de legenda para detalhamento de arquitetura ou fluxo de dados (n8n/Python).
+            </figcaption>
+          </figure>
+          <div style="padding: 1.5rem; background: rgba(255,255,255,0.02); border-radius: var(--radius); border: 1px solid var(--border);">
+             <h4 style="margin-bottom: 1rem; color: var(--accent-purple-glow);">Descrição do Componente</h4>
+             <p style="font-size: 0.95rem; color: var(--text-secondary); line-height: 1.6;">
+               Este layout combina uma imagem técnica com uma área de explicação lateral, ideal para documentar as tecnologias usadas em cada etapa do projeto "NetBrain" ou automações.
+             </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ════════ FOOTER (REUTILIZADA) ════════ -->
+  <footer>
+    <p>© 2026 <span>Victor Gabriel</span>. Design System & Boilerplate.</p>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>
