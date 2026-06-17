@@ -170,86 +170,46 @@
     </div>
   </header>
 
-  <!-- ════════ COVER IMAGE (Imagem Destaque) ════════ -->
+  <!-- ════════ COVER IMAGE (Imagem Destaque) ════════ 
   <section style="padding-top: 0; padding-bottom: 2rem;">
     <div class="project-cover fade-in fade-in-delay-2">
-      <!-- Imagem referenciada no index.html -->
+      <-- Imagem referenciada no index.html --
       <img src="assets/img/project_obs.png" alt="Plugins para OBS Studio" onerror="this.style.display='none'; this.parentNode.innerHTML='[ Imagem project_obs.png ]';" />
     </div>
-  </section>
+  </section>-->
 
-  <!-- ════════ PROJECT DETAILS (Case Study) ════════ -->
-  <section style="padding-top: 2rem; background: transparent;">
-    <div class="project-content-grid">
-      
-      <!-- Coluna Principal (Textos e Explicação) -->
+  <!-- ════════ CONTENT / VALUE PROPOSITION (Storytelling / Introdução) ════════ -->
+  <!-- Conforme imagens: Split Layout (Texto de um lado, imagem do outro) -->
+  <section id="value-proposition" style="background: var(--bg-secondary);">
+    <div class="grid-2" style="max-width: 1200px; margin: 0 auto;">
       <div class="fade-in">
-        <div class="content-block">
-          <h3>O Cenário e o Desafio</h3>
-          <p>
-            No universo das transmissões ao vivo de alta qualidade (live production), o tempo de resposta e o gerenciamento dinâmico de assets gráficos são essenciais. Operadores de mesa frequentemente enfrentam gargalos ao tentar organizar, atualizar e exibir rapidamente dezenas de elementos visuais — como placares, lower-thirds (GCs), alertas e banners — durante eventos dinâmicos.
-          </p>
-          <p>
-            O desafio era superar as limitações das ferramentas nativas do OBS Studio, que se tornavam lentas ou desorganizadas em produções complexas, e construir uma solução integrada que garantisse agilidade máxima sem comprometer a performance do computador (CPU/GPU) durante a renderização da live.
-          </p>
-        </div>
-        
-        <div class="content-block">
-          <h3>Desenvolvimento e Solução</h3>
-          <p>
-            Para resolver esse problema, desenvolvi uma suíte de plugins customizados e scripts utilizando a API nativa do OBS e automações via WebSocket. 
-          </p>
-          <p>
-            A solução englobou a criação de painéis dockables personalizados integrados diretamente à interface do OBS. Estes painéis conectavam-se a fontes de dados externas para atualizar gráficos em tempo real, permitindo aos operadores controlar animações complexas, transições de cena e visibilidade de fontes com apenas um clique.
-          </p>
-        </div>
-
-        <div class="content-block">
-          <h3>Resultados Obtidos</h3>
-          <p>
-            A adoção dessas ferramentas customizadas transformou radicalmente o workflow de transmissão:
-          </p>
-          <ul style="color: var(--text-secondary); line-height: 1.8; margin-bottom: 1.5rem; padding-left: 1.5rem;">
-            <li>Redução de mais de <strong>60% no tempo de configuração</strong> (setup) das cenas antes dos eventos.</li>
-            <li>Eliminação de falhas de renderização gráfica graças à otimização de scripts rodando nativamente.</li>
-            <li>Operação simplificada, permitindo que até usuários com menos experiência em broadcast operassem as artes dinâmicas sem erros durante eventos ao vivo.</li>
-          </ul>
+        <span class="section-label">Proposta de Valor</span>
+        <h2 class="section-title">A história por trás<br /><span>do seu Sucesso</span></h2>
+        <div class="section-divider"></div>
+        <p style="color: var(--text-secondary); margin-bottom: 1rem; line-height: 1.8;">
+          Use esta área para contar a história do produto, apresentar o "Storytelling" mencionado na imagem de referências. Conecte-se com as dores do seu cliente.
+        </p>
+        <p style="color: var(--text-secondary); margin-bottom: 2rem; line-height: 1.8;">
+          Você pode detalhar as funcionalidades chave e garantir que a pessoa entenda exatamente o que está comprando/assinando.
+        </p>
+        <ul style="list-style: none; color: var(--text-primary); margin-bottom: 2.5rem;">
+          <li style="margin-bottom: 0.8rem; display: flex; align-items: center; gap: 10px;">
+             <div style="color: var(--status-disponivel);">✓</div> Foco no resultado do cliente
+          </li>
+          <li style="margin-bottom: 0.8rem; display: flex; align-items: center; gap: 10px;">
+             <div style="color: var(--status-disponivel);">✓</div> Aumento real de produtividade
+          </li>
+          <li style="margin-bottom: 0.8rem; display: flex; align-items: center; gap: 10px;">
+             <div style="color: var(--status-disponivel);">✓</div> Suporte especializado
+          </li>
+        </ul>
+        <a href="#" class="btn-primary">Saiba mais sobre a empresa</a>
+      </div>
+      <div class="fade-in" style="height: 100%;">
+        <div class="image-placeholder">
+          [ Imagem do Produto / Dashboards / Time ]
         </div>
       </div>
-
-      <!-- Coluna Secundária (Sidebar de Tech Stack / Features) -->
-      <div class="fade-in fade-in-delay-1">
-        <div class="about-card-float" style="padding: 2rem; position: sticky; top: 100px;">
-          <h4 style="font-size: 1.1rem; margin-bottom: 1.5rem; color: var(--text-primary);">Stack & Ferramentas</h4>
-          
-          <div class="skills-grid">
-            <span class="skill-badge orange" style="--accent:orange">OBS Studio</span>
-            <span class="skill-badge purple">Python</span>
-            <span class="skill-badge">C++ (API)</span>
-            <span class="skill-badge">HTML/JS (Docks)</span>
-            <span class="skill-badge cyan">WebSocket</span>
-          </div>
-
-          <div class="section-divider" style="margin: 2.5rem 0; width: 100%; background: linear-gradient(135deg, #fb923c 0%, #ea580c 100%);"></div>
-
-          <h4 style="font-size: 1.1rem; margin-bottom: 1.5rem; color: var(--text-primary);">Destaques do Projeto</h4>
-          <ul style="list-style: none; color: var(--text-secondary); font-size: 0.95rem;">
-            <li style="margin-bottom: 1rem; display: flex; gap: 10px;">
-              <span style="color: #fb923c;">▹</span> Painéis Dockables Nativos
-            </li>
-            <li style="margin-bottom: 1rem; display: flex; gap: 10px;">
-              <span style="color: #fb923c;">▹</span> Automação de Cenas e Fontes
-            </li>
-            <li style="margin-bottom: 1rem; display: flex; gap: 10px;">
-              <span style="color: #fb923c;">▹</span> Gerenciamento de Dados Dinâmicos
-            </li>
-            <li style="margin-bottom: 1rem; display: flex; gap: 10px;">
-              <span style="color: #fb923c;">▹</span> Baixo Consumo de CPU
-            </li>
-          </ul>
-        </div>
-      </div>
-
     </div>
   </section>
 
