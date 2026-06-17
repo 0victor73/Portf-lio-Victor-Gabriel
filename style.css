@@ -1178,13 +1178,6 @@ footer span {
   text-align: center;
 }
 
-.project-image {
-  width: 100%;
-  height: 400px;
-  object-fit: cover;
-  display: block;
-  margin: 0 auto;
-}
 
 /* ── RESPONSIVE ── */
 @media (max-width: 900px) {
