@@ -53,12 +53,12 @@
     <div class="projects-list" id="projects-grid">
 
       <!-- Card 4 -->
-      <a href="Golyrics.html" class="project-card fade-in fade-in-delay-2" id="card-golyrics" style="text-decoration:none;color:inherit;">
+      <a href="Golyrics.html" class="project-card card-animate" id="card-golyrics" style="text-decoration:none;color:inherit;">
         <img src="assets/img/Golyrics0.png" alt="GoLyrics" class="project-image" />
         <div class="project-body">
           <div class="project-number">01 / Plugin</div>
           <h3 class="project-title">GoLyrics</h3>
-          <p class="project-desc">Letras de música sincronizadas para lives</p>
+          <p class="project-desc">Letras de música do Holyrics estilizadas e animadas para lives</p>
           <div class="project-tags">
             <span class="project-tag purple">HTML</span>
             <span class="project-tag purple">CSS</span>
@@ -67,21 +67,20 @@
         </div>
       </a>
       <!-- Card 1 -->
-      <a href="projeto-obs-plugins.html" class="project-card fade-in fade-in-delay-2" id="card-obs" style="text-decoration:none;color:inherit;">
-        <img src="assets/img/project_obs.png" alt="Customização para Broadcast" class="project-image" />
+      <a href="PanelDirector.html" class="project-card card-animate" id="card-obs" style="text-decoration:none;color:inherit;">
+        <img src="assets/img/paneldirector0.png" alt="PanelDirector" class="project-image" />
         <div class="project-body">
           <div class="project-number">02 / Live Production</div>
-          <h3 class="project-title">Plugins para OBS Studio</h3>
-          <p class="project-desc">Desenvolvimento de plugins nativos para OBS Studio focado no gerenciamento de
-            elementos de transmissão ao vivo de alta performance.</p>
+          <h3 class="project-title">PanelDirector</h3>
+          <p class="project-desc">Gradients animados para lives e painéis de led</p>
           <div class="project-tags">
-            <span class="project-tag orange">OBS Studio</span>
-            <span class="project-tag orange">Live Production</span>
+            <span class="project-tag blue">OBS Studio</span>
+            <span class="project-tag blue">NEAT gradients</span>
           </div>
         </div>
       </a>
 
-      <!-- Card 2 -->
+      <!-- Card 2 
       <a href="PanelDirector.html" class="project-card fade-in fade-in-delay-1" id="card-dashboards" style="text-decoration:none;color:inherit;">
         <img src="assets/img/project_dashboards.png" alt="Dashboards Institucionais e de RH" class="project-image" />
         <div class="project-body">
@@ -97,7 +96,7 @@
         </div>
       </a>
 
-    </div>
+    </div>-->
   </section>
   
   <!-- ════════ FOOTER ════════ -->
@@ -107,6 +106,38 @@
   </footer>
 
   <script src="main.js"></script>
+  <style>
+    .card-animate {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+                  transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .card-animate.card-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+  <script>
+    (function () {
+      var cards = document.querySelectorAll('.card-animate');
+      if (!cards.length) return;
+
+      var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('card-visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12 });
+
+      cards.forEach(function (card, i) {
+        card.style.transitionDelay = (i * 0.15) + 's';
+        observer.observe(card);
+      });
+    })();
+  </script>
 </body>
 
 </html>
